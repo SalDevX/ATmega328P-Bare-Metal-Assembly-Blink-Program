@@ -6,7 +6,7 @@ A minimalist assembly language implementation of LED blinking on ATmega328P (Ard
 
 
 
-## ✨ Features
+## Features
 - Pure AVR assembly implementation
 - Direct register manipulation
 - Cycle-accurate delay loops
@@ -130,7 +130,6 @@ inner_loop:
 MIT License - See [LICENSE](LICENSE) for details
 
 
-**Created with ❤️ by [Your Name]**  
 
 *Embedded Systems Engineer*  
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github)](https://github.com/yourusername)
