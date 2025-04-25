@@ -1,10 +1,6 @@
 
 
-```markdown
 # ATmega328P Bare-Metal LED Blink (Assembly)
-
-[![PlatformIO](https://img.shields.io/badge/PlatformIO-ffffff?style=flat&logo=platformio&logoColor=000000)](https://platformio.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A minimalist assembly language implementation of LED blinking on ATmega328P (Arduino Uno), demonstrating direct hardware control without Arduino framework dependencies.
 
@@ -25,8 +21,6 @@ A minimalist assembly language implementation of LED blinking on ATmega328P (Ard
 
 **Pin Configuration:**
 
-```
-
 ```sh
           +-----\/-----+
    (PC6) 1|~RESET   PC5|28 (A5) 
@@ -35,17 +29,17 @@ A minimalist assembly language implementation of LED blinking on ATmega328P (Ard
    (PD2) 4|INT0     PC2|25 (A2) 
    (PD3) 5|INT1     PC1|24 (A1) 
    (PD4) 6|XCK/T0   PC0|23 (A0) 
-      VCC|7         GND|22       
-      GND|8        AREF|21 (PB7)
-   (XT1)9|TOSC1    PB6|20 (D12)
-   (XT2)10|TOSC2   PB5|19 (D13) <-- LED ★
-  (PD5)11|OC1B     PB4|18 (D12)
-  (PD6)12|OC1A     PB3|17 (D11)
-  (PD7)13|OC0B     PB2|16 (D10)
-  (PB0)14|OC0A     PB1|15 (D9) 
-         +------------+
-```
+       VCC|7        GND|22       
+       GND|8       AREF|21 (PB7)
+    (XT1)9|TOSC1    PB6|20 (D12)
+    (XT2)10|TOSC2   PB5|19 (D13) <-- LED ★
+   (PD5)11|OC1B     PB4|18 (D12)
+   (PD6)12|OC1A     PB3|17 (D11)
+   (PD7)13|OC0B     PB2|16 (D10)
+   (PB0)14|OC0A     PB1|15 (D9) 
+          +------------+
 
+```
 ## 📜 Code Breakdown
 ### main.S
 ```asm
@@ -92,10 +86,10 @@ inner_loop:
 - 16MHz external crystal oscillator
 - 62.5ns clock cycle period
 - Delay calculation:
-  ```
+  
   Total delay = (3 × 28,000 - 1) × 100 = 8,399,900 cycles
   Real-time = 8,399,900 × 62.5ns = 525ms
-  ```
+  
 
 ### Memory Architecture
 | Segment   | Address Range | Size  | Description            |
