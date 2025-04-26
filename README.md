@@ -32,7 +32,7 @@ A minimalist assembly language implementation of LED blinking on ATmega328P (Ard
        VCC|7        GND|22       
        GND|8       AREF|21 (PB7)
     (XT1)9|TOSC1    PB6|20 (D12)
-    (XT2)10|TOSC2   PB5|19 (D13) <-- LED ★
+   (XT2)10|TOSC2    PB5|19 (D13) <-- LED ★
    (PD5)11|OC1B     PB4|18 (D12)
    (PD6)12|OC1A     PB3|17 (D11)
    (PD7)13|OC0B     PB2|16 (D10)
@@ -115,7 +115,7 @@ inner_loop:
 ## 📈 Performance Metrics
 | Metric          | Value        |
 |-----------------|--------------|
-| Code Size       | 38 bytes     |
+| Code Size       | 172 bytes     |
 | RAM Usage       | 0 bytes      |
 | Current Draw    | 15mA (LED on)|
 | Clock Accuracy  | ±0.5%        |

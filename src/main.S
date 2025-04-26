@@ -58,7 +58,7 @@ delay:
 outer_loop:
   ; Initialize 16-bit counter in Z register (R30/R31 pair)
   ldi r30, lo8(28000)  ; Low byte of inner loop count (28000 = 0x6D60)
-  ldi r31, hi8(10000)  ; High byte of inner loop count
+  ldi r31, hi8(28000)  ; High byte of inner loop count
 inner_loop:
   ; sbiw: Subtract Immediate from Word (Z register)
   ; - 2 cycles to execute
@@ -197,10 +197,23 @@ inner_loop:
 ;   | VCC (Pin 7)    | <---->| 5V Regulator   |       |                |
 ;   +----------------+       +----------------+       +----------------+
 ;
-
-
+;   ┌────────────────────┬─────────────┬──────────────────────────────────┬───────────┐
+;   │   Instruction      │ Operands    │ Description                      │ Cycles    │
+;   ├────────────────────┼─────────────┼──────────────────────────────────┼───────────┤
+;   │ LDI                │ Rd, K       │ Load Immediate (R16-R31 only)    │ 1         │
+;   │ MOV                │ Rd, Rr      │ Copy Register                    │ 1         │
+;   │ OUT                │ A, Rr       │ Write I/O Register               │ 1         │
+;   │ IN                 │ Rd, A       │ Read I/O Register                │ 1         │
+;   │ SBI/CBI            │ A, b        │ Set/Clear I/O Bit                │ 2         │
+;   │ RJMP/RCALL         │ k           │ Relative Jump/Call (±2KB)        │ 2/3       │
+;   │ BRNE/BREQ          │ k           │ Branch if Not Equal/Equal        │ 1/2       │
+;   │ SBIW/ADIW          │ Rd, K       │ Subtract/Add Immediate to Word   │ 2         │
+;   │ PUSH/POP           │ Rr          │ Stack Operations                 │ 2/2       │
+;   │ RET                │             │ Return from Subroutine           │ 4         │
+;   └────────────────────┴─────────────┴──────────────────────────────────┴───────────┘
 ;
 ;
+;    
 ;
 ;
 ;
